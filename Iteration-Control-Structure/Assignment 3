@@ -1,0 +1,19 @@
+//Implement a program to find out whether a number is divisible by the sum of its digits. 
+//Display appropriate messages.
+
+
+class Tester {
+	public static void main(String[] args) {
+		// Implement your code here 
+		int num = 2250,sum=0;
+	    int text = num;
+		while(num>0){
+		    int r = num%10;
+		    sum += r;
+		    num = num/10;
+		}
+		if(num%sum == 0){
+		    System.out.println(text+" is divisible by sum of its digits");
+		}
+	}
+}
