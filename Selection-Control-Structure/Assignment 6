@@ -1,0 +1,38 @@
+//You have x number of $5 notes and y number of $1 notes. You want to purchase an item for amount z. The shopkeeper wants you to provide exact change. 
+//You want to pay using a minimum number of notes. How many $5 notes and $1 notes will you use?
+//Implement a program to find out how many $5 notes and $1 notes will be used. If an exact change is not possible, then display -1.
+
+
+class Tester {
+    static void calc(int rupeeToMake, int no_of_five, int no_of_one){
+        int fiveNeeded = 0;
+        int oneNeeded = 0;
+        
+        int total = no_of_five*5+no_of_one;
+        if (total>rupeeToMake){
+            fiveNeeded = rupeeToMake / 5;
+            oneNeeded = rupeeToMake % 5;
+            if(fiveNeeded < no_of_five && oneNeeded < no_of_one){
+                System.out.println("Five needed"+fiveNeeded);
+                System.out.println("One needed"+oneNeeded);
+            }else if(fiveNeeded >=no_of_five && oneNeeded<no_of_one){
+                oneNeeded = rupeeToMake-(no_of_five *5);
+                fiveNeeded = no_of_five;
+                System.out.println("Five needed"+fiveNeeded);
+                System.out.println("One needed"+oneNeeded);
+            }else if(fiveNeeded > no_of_five && oneNeeded >no_of_one){
+                System.out.println(-1);
+            }
+        }else{
+            System.out.println(-1);
+        }
+    }
+	public static void main(String[] args) {
+		// Implement your code here 
+		int rupeeToMake = 21;
+		int no_of_five = 4;
+		int no_of_one = 2;
+		calc(rupeeToMake, no_of_five, no_of_one);
+	}
+}
+
