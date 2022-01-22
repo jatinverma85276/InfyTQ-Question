@@ -1,0 +1,35 @@
+//Implement a program to check whether a given number is a lucky number.
+//A lucky number is a number whose sum of squares of every even-positioned digit (starting from the second position) is a multiple of 9.
+//E.g. - 1623 = 62+32 = 45 is a multiple of 9 and hence is a lucky number.
+
+
+
+public class Tester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int num = 1623;
+		int text = num;
+		int count=0;
+		while(num>0) {
+			num = num/10;
+			count++;
+		}
+		int sum = 0;
+		for(int i=1;i<=count;i++) {
+			int r = text/(int)(Math.pow(10, count-i));
+			if(i%2==0) {
+				sum += Math.pow(r, 2);
+			}
+			text = text%(int)(Math.pow(10, count-i));
+		}
+		
+		if(sum % 9 ==0) {
+			System.out.println("It is a Lucky Number");
+		}else {
+			System.out.println("It is not a Lucky Number");
+		}
+		
+	}
+
+}
