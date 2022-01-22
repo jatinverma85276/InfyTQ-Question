@@ -1,0 +1,23 @@
+Implement a program to find out whether a number is a seed of another number.
+A number X is said to be a seed of number Y if multiplying X by its every digit equates to Y.
+E.g.: 123 is a seed of 738 as 123*1*2*3 = 738
+
+
+class Tester {
+	public static void main(String[] args) {
+		// Implement your code here 
+		int num = 123;
+		int text = num;
+		int seed = 738,sum=num;
+		while(num>0){
+		    int r = num%10;
+		    sum *= r;
+		    num = num/10;
+		}
+		if(seed == sum){
+		    System.out.println(text +" is a seed of "+seed);
+		}else{
+		    System.out.println(text +" is not a seed of "+seed);
+		}
+	}
+}
