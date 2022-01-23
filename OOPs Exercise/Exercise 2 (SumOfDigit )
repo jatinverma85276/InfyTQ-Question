@@ -1,0 +1,37 @@
+Implement a class Calculator with the instance variable and method mentioned below. 
+Method Description
+sumOfDigits()
+Calculate and return the sum of the digits of the num member variable
+Test the functionalities using the provided Tester class. 
+
+
+
+class Calculator {
+     public int num;
+	// Implement your code here
+    public int sumOfDigits(){
+        int sum=0;
+        int text = this.num;
+        while(text>0){
+            int r = text%10;
+            sum += r;
+            text = text/10;
+        }
+        return sum;
+    }
+}
+
+class Tester {
+
+	public static void main(String args[]) {
+
+		Calculator calculator = new Calculator();
+		calculator.num = 123;
+        int fkj =calculator.sumOfDigits();
+        System.out.println(fkj);
+		// Assign a value to the member variable num of Calculator class
+
+		// Invoke the method sumOfDigits of Calculator class and display the output
+
+	}
+}
