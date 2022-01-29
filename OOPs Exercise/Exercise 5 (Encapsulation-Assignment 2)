@@ -1,0 +1,76 @@
+class MovieTicket {
+    //Implement your code here 
+	private int movieId;
+	private int noOfSeats;
+	private double costPerTicket;
+	public MovieTicket(int movieId) {
+		this.movieId = movieId;
+	}
+	public MovieTicket(int movieId,int noOfSeats){
+		this.movieId = movieId;
+		this.noOfSeats = noOfSeats;
+	}
+	public int getMovieId() {
+		return movieId;
+	}
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
+	public int getNoOfSeats() {
+		return noOfSeats;
+	}
+	public void setNoOfSeats(int noOfSeats) {
+		this.noOfSeats = noOfSeats;
+	}
+	public double getCostPerTicket() {
+		return costPerTicket;
+	}
+	public void setCostPerTicket(double costPerTicket) {
+		this.costPerTicket = costPerTicket;
+	}
+	public double calculateTotalAmount() {
+		if(this.movieId == 111 || this.noOfSeats==0) {
+			int total = this.noOfSeats*7;
+			double afterTax = (total*0.02)+total;
+			return afterTax;
+		}else if(this.movieId == 112) {
+			int total = this.noOfSeats*8;
+			double afterTax = (total*0.02)+total;
+			return afterTax;
+		}else if(this.movieId == 113) {
+			double total = this.noOfSeats*8.5;
+			double afterTax = (total*0.02)+total;
+			return afterTax;
+		}
+		return 0;
+	}
+	public double calculateTotalAmountCostPerTicket() {
+		if(this.movieId == 111) {
+			return 7.0;
+		}else if(this.movieId ==112) {
+			return 8.0;
+		}else if(this.movieId == 113) {
+			return 8.5;
+		}
+		return 0;
+	}
+}
+
+
+
+class Tester {
+    public static void main(String[] args) {
+        Movie movieTicket = new Movie(112,3);
+        double amount;
+        if(movieTicket.getNoOfSeats()>=1 ) {
+        	amount = movieTicket.calculateTotalAmount();
+        }else {
+        	amount = movieTicket.calculateTotalAmountCostPerTicket();
+        }
+        
+        if (amount==0)
+            System.out.println("Sorry! Please enter valid movie Id and number of seats");
+        else
+            System.out.println("Total amount for booking : $" + Math.round(amount*100)/100.0);
+    }
+}
