@@ -1,0 +1,36 @@
+
+class AverageSalary {
+    
+    public static double[] findDetails(double[] salary) {
+        //Implement your code here and change the return value accordingly
+    	double sum = 0,avg;
+    	int avgLess = 0, avgGreat = 0;
+    	double []newArr = new double[3];
+    	for(int i = 0;i<salary.length;i++) {
+    		sum += salary[i];
+    	}
+    	avg = sum/salary.length;
+    	for(int i = 0;i<salary.length;i++) {
+    		if(salary[i] > avg && salary[i]!=avg) {
+    			avgGreat++;
+    		}else if(salary[i] < avg && salary[i]!=avg) {
+    			avgLess++;
+    		}
+    	}
+    	newArr[0] = avg;
+    	newArr[1] = avgGreat;
+    	newArr[2] = avgLess;
+    	
+    	
+        return newArr;     
+
+    }
+    public static void main(String[] args) {
+        double[] salary = { 23500.0, 23500.0, 23500.0, 23500.0 };
+        double[] details = findDetails(salary);
+              
+        System.out.println("Average salary: "+ details[0]);
+        System.out.println("Number of salaries greater than the average salary: "+ details[1]);
+        System.out.println("Number of salaries lesser than the average salary: "+ details[2]);
+    }
+}
